@@ -87,5 +87,5 @@ var black_wins = false;
 var white_wins = false;
 
 // Max number of turns that the AI will calculate till
-var MAXDEPTH = 6;
+var MAXDEPTH = 3;
 
