@@ -1,0 +1,88 @@
+.center {
+	text-align: center;
+}
+.parent {
+	position: relative;
+	top: 25;
+	text-align: center;
+}
+.child {
+	position: absolute;
+	top: 10;
+	left: 350;
+}
+
+#board {
+	background-image: url("pics/chessboard.png");
+	z-index: 0;
+}
+
+.front {
+	z-index: 5;
+}
+
+.translucent {
+	opacity: .5;
+}
+
+#whqueeningIcons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100px;
+	visibility: hidden;
+}
+
+#blqueeningIcons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100px;
+	visibility: hidden;
+}
+
+.iconqueen {
+	position: absolute;
+	margin-left: -210px;
+	border-width: -5px;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+}
+
+.iconknight {
+	position: absolute;
+	margin-left: -105px;
+	border-width: -5px;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+}
+
+.iconbishop {
+	position: absolute;
+	margin-left: 0px;
+	border-width: -5px;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+}
+
+.iconrook {
+	position: absolute;
+	margin-left: 105px;
+	border-width: -5px;
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+}
+
+.messageHolder {
+	position: relative;
+	width: 340px;
+	margin: auto;
+}
+
+.matingMessages {
+	position: absolute;
+	visibility: hidden;
+	display: block;
+	margin: auto;
+}
+

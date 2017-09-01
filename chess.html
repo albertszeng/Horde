@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="chess.css">
+		<title>Horde Chess</title>
+	</head>
+
+	<body>
+
+		<script src="globalvars.js"></script>
+		<script src="loadarray.js"></script>
+		
+		<script src="clickToTile.js"></script>
+		<script src="inCheck.js"></script>
+		<script src="moveInArray2.js"></script>
+		<script src="swapPerspective.js"></script>
+		<script src="saveState.js"></script>
+		<script src="possibleMoves.js"></script>
+		
+		<script src="checkStalemate.js"></script>
+		<script src="checkCheckmate.js"></script>
+
+
+		<div class="center">
+			<h1>Horde Chess</h1>
+			<p>Welcome to Horde Chess!</p>
+			<button id="swapPerspective">Swap Perspective</button>
+			<button id="undoMove">Undo Move</button>
+			<button id="newGame">New Game</button>
+		</div>
+
+		<br>
+		<br>
+		
+		<div class="center">
+			<canvas id="board" width=480 height=480></canvas>
+		</div>
+
+		<div id="whqueeningIcons">
+			<img id="iconwhQueen" class="iconqueen" src="pics/big/BIGwhqueen.png"></img>
+			<img id="iconwhKnight" class="iconknight" src="pics/big/BIGwhknight.png"></img>
+			<img id="iconwhBishop" class="iconbishop" src="pics/big/BIGwhbishop.png"></img>
+			<img id="iconwhRook" class="iconrook" src="pics/big/BIGwhrook.png"></img>
+		</div>
+		<div id="blqueeningIcons">
+			<img id="iconblQueen" class="iconqueen" src="pics/big/BIGblqueen.png"></img>
+			<img id="iconblKnight" class="iconknight" src="pics/big/BIGblknight.png"></img>
+			<img id="iconblBishop" class="iconbishop" src="pics/big/BIGblbishop.png"></img>
+			<img id="iconblRook" class="iconrook" src="pics/big/BIGblrook.png"></img>
+		</div>
+
+		<div class="messageHolder">
+			<img id="check" class="matingMessages" src="pics/matingMessages/check.png"></img>
+			<img id="stalemate" class="matingMessages" src="pics/matingMessages/stalemate.png"></img>
+			<img id="white_wins" class="matingMessages" src="pics/matingMessages/white_wins.png"></img>
+			<img id="black_wins" class="matingMessages" src="pics/matingMessages/black_wins.png"></img>
+		</div>
+		
+		<script src="loadpieces.js"></script>
+		<script src="highlightTile.js"></script>
+		<script src="makeMove.js"></script>
+		<script src="undoMove.js"></script>
+		<script src="newGame.js"></script>
+		
+
+		<script>
+			loadArray();
+			window.onload=loadPieces(pieces);
+		</script>
+		
+		<script>
+			document.getElementById("board").addEventListener("click", makeMove);
+			document.getElementById("swapPerspective").addEventListener("click", swapPerspective);
+			document.getElementById("undoMove").addEventListener("click", undoMove);
+			document.getElementById("newGame").addEventListener("click", newGame);
+		</script>
+
+	</body>
+</html>
