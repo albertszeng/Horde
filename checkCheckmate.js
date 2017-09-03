@@ -23,7 +23,7 @@ function checkCheckmate() {
 			for(var i = 0; i < 8; i++) {
 				for(var j = 0; j < 8; j++) {
 					if(pattBl.test(pieces[i][j])) {
-						if (possibleMoves(i, j).length > 0) {
+						if (possibleMoves(pieces, i, j).length > 0) {
 							return false;
 						}
 					}

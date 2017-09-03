@@ -16,7 +16,7 @@ function makeMove(e) {
 		if(patt.test(pieces[initialRow][initialCol])) {
 			clicked = 1;
 			highlightTile(initialRow, initialCol, "");
-			var legalMoves = possibleMoves(initialRow, initialCol);
+			var legalMoves = possibleMoves(pieces, initialRow, initialCol);
 
 			for(var k = 0; k < legalMoves.length; k++) {
 				highlightTile(legalMoves[k][0][0], legalMoves[k][0][1], legalMoves[k][1]);
@@ -35,7 +35,7 @@ function makeMove(e) {
 
 		// setting tempTurn so that later, we can check if move was successful
 		var tempTurn = 0;
-		if(turn == 0) {
+		if (turn == 0) {
 			var tempTurn = 0;
 		}
 		else {
@@ -46,7 +46,7 @@ function makeMove(e) {
 		moveInArray2(initialRow, initialCol, finalRow, finalCol);
 
 		// if the turn didn't fail, ie. turn variable was changed, save state to history
-		if(turn != tempTurn) {
+		if (turn != tempTurn) {
 			saveState();
 		}
 		loadPieces(pieces);
@@ -67,9 +67,8 @@ function makeMove(e) {
 			document.getElementById("stalemate").style.visibility = "visible";
 			stalemated = true;
 		}
-
 		// check for checkmate
-		if (checkCheckmate()) {
+		else if (checkCheckmate()) {
 			document.getElementById("board").removeEventListener("click", makeMove);
 			if (turn == 0) {
 				document.getElementById("black_wins").style.visibility = "visible";
@@ -80,5 +79,10 @@ function makeMove(e) {
 				white_wins = true;
 			}
 		}
+		// wait 50 milliseconds for the board to load, then AI moves
+		// 50 ms delay is necessary because otherwise, old board isn't cleared
+		else if (AIstatus > 0) {
+			setTimeout(function () {AIMove();}, AIwaitTime);
+		}	
 	}
 }

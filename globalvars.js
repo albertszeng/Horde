@@ -54,6 +54,7 @@ function cloneArray(original, clone) {
 		}
 	}
 }
+// clones the array so that the board is reversed
 function cloneArrayReverse(original, clone) {
 	for(var i = 0; i < 8; i++) {
 		for(var j = 0; j < 8; j++) {
@@ -77,6 +78,9 @@ function compArrays(array1, array2) {
 	return true;
 }
 
+// function that keeps track of whether player is currently choosing a piece to queen to
+var isQueening = false;
+
 // variable that determines if stalemate just occurred
 var stalemated = false;
 
@@ -88,4 +92,15 @@ var white_wins = false;
 
 // Max number of turns that the AI will calculate till
 var MAXDEPTH = 3;
+
+
+// 0 if AI is off, 1 if AI is white, 2 if AI is black
+var AIstatus = 0;
+
+// how many milliseconds the AI should wait before moving
+var AIwaitTime = 50;
+
+
+
+
 

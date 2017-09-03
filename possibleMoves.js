@@ -29,7 +29,7 @@ function checkIfPreventsCheck(row1, col1, possibleMoves) {
 }
 
 // returns an array of all possible moves of an object
-function possibleMoves(row, col) {
+function possibleMoves(pieces, row, col) {
 	var mover = pieces[row][col];
 	var legalMoves = new Array();
 	

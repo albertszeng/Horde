@@ -12,7 +12,7 @@ function checkStalemate() {
 			for (j = 0; j < 8; j++) {
 				var mover = pieces[i][j];
 				if (pattWh.test(mover)) {
-					if (possibleMoves(i, j).length != 0) {
+					if (possibleMoves(pieces, i, j).length != 0) {
 						avail_moves = true;
 						break;
 					}
@@ -28,7 +28,7 @@ function checkStalemate() {
 			for (j = 0; j < 8; j++) {
 				var mover = pieces[i][j];
 				if (pattBl.test(mover)) {
-					if (possibleMoves(i, j).length != 0) {
+					if (possibleMoves(pieces, i, j).length != 0) {
 						avail_moves = true;
 						break;
 					}
