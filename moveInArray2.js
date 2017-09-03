@@ -27,7 +27,6 @@ function moveInArray2(row1, col1, row2, col2) {
 		}
 		move_piece(mover, row1, col1, row2, col2);
 	}
-	console.log(pieces);
 }	
 
 // function that actually moves a piece in the array
@@ -45,7 +44,6 @@ function move_piece(mover, row1, col1, row2, col2) {
 		}
 	}
 	else {
-		console.log("this is reached!");
 		pieces[row1][col1] = mover;
 		pieces[row2][col2] = save;
 	}
@@ -138,12 +136,6 @@ function queening(selection) {
 		document.getElementById("iconwhKnight").removeEventListener("click", whKnightQueening);
 		document.getElementById("iconwhBishop").removeEventListener("click", whBishopQueening);
 		document.getElementById("iconwhRook").removeEventListener("click", whRookQueening);
-
-		if (inCheck(pieces)) {
-			document.getElementById("check").style.visibility = "visible";
-			check = true;
-		}
-
 	}
 	else {
 		if(perspective == 0) {
@@ -176,9 +168,37 @@ function queening(selection) {
 	// change isQueening to demonstrate queening action is done
 	isQueening = false;
 
+	// check whether the king is in check or not
+	if (inCheck(pieces) && !checkCheckmate()) {
+		document.getElementById("check").style.visibility = "visible";
+		check = true;
+	}
+	else {
+		document.getElementById("check").style.visibility = "hidden";
+		check = false;
+	}
+
+	// check for stalemate
+	if (checkStalemate()) {
+		document.getElementById("board").removeEventListener("click", makeMove);
+		document.getElementById("stalemate").style.visibility = "visible";
+		stalemated = true;
+	}
+	// check for checkmate
+	else if (checkCheckmate()) {
+		document.getElementById("board").removeEventListener("click", makeMove);
+		if (turn == 0) {
+			document.getElementById("black_wins").style.visibility = "visible";
+			black_wins = true;
+		}
+		else {
+			document.getElementById("white_wins").style.visibility = "visible";
+			white_wins = true;
+		}
+	}
 	// if AI is on, the AI should now make a move
-	if (AIstatus > 0) {
-		setTimeout(function () {AIMove();}, AIwaitTime);
+	else if (AIstatus > 0) {
+		setTimeout(function () {AIMove();}, AIWAITTIME);
 	}
 }
 

@@ -48,6 +48,16 @@ function makeMove(e) {
 		// if the turn didn't fail, ie. turn variable was changed, save state to history
 		if (turn != tempTurn) {
 			saveState();
+			
+			if (turn == 0) {
+				console.log("score after black plays");	
+				console.log(maximize(0, pieces, "white")[0]);
+			}
+			else {
+				console.log("score after white plays");
+				console.log(maximize(0, pieces, "white")[0]);
+			}
+			
 		}
 		loadPieces(pieces);
 
@@ -82,7 +92,7 @@ function makeMove(e) {
 		// wait 50 milliseconds for the board to load, then AI moves
 		// 50 ms delay is necessary because otherwise, old board isn't cleared
 		else if (AIstatus > 0) {
-			setTimeout(function () {AIMove();}, AIwaitTime);
-		}	
+			setTimeout(function () {AIMove();}, AIWAITTIME);
+		}
 	}
 }

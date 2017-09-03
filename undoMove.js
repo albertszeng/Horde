@@ -5,6 +5,14 @@ function undoMove() {
 		// if AI is off, only go back 1 move
 		if (AIstatus == 0) {
 			moveHistory.length = moveHistory.length - 1;
+
+			// go back one turn
+			if(turn == 0) {
+				turn = 1;
+			}
+			else {
+				turn = 0;
+			}
 		}
 		// if AI is on and player has made at least 1 move, undo 1 player mover and 1 AI move
 		else if ((AIstatus == 1 && moveHistory.length > 2) || AIstatus == 2) {
@@ -73,7 +81,5 @@ function undoMove() {
 		else {
 			document.getElementById("check").style.visibility = "hidden";
 		}
-	}
-	console.log(moveHistory);
-	
+	}	
 }
