@@ -1,7 +1,6 @@
 // makes the move for the AI
 function AIMove() {
 	var d1 = new Date();
-	console.log(d1.getTime());
 
 	// If AI is black and it's white to move, that means player didn't move so just return.
 	if (AIstatus == 2 && turn == 0){
@@ -77,7 +76,8 @@ function AIMove() {
 	}
 
 	var d2 = new Date();
-	console.log(d2.getTime());
+	console.log("AI run time:")
+	console.log(d2.getTime() - d1.getTime());
 }
 
 // function that finds the best possible move for a player
@@ -130,6 +130,13 @@ function maximize(depth, board, player) {
 
 		// make a possible move on the test board
 		testMove(currBoard, moves[h][0], moves[h][1], moves[h][3][0][0], moves[h][3][0][1]);
+		
+		// don't try moves that are too bad
+		//if(h>0 && MAXDEPTH-depth > 3 && player == "white" && heuristic(currBoard)<score-5)
+		//	continue;
+		//if(h>0 && MAXDEPTH-depth > 3 && player == "black" && heuristic(currBoard)>score+5)
+		//	continue;
+
 
 		// switch players to run maximize for the opponent
 		var otherPlayer = "";
@@ -175,7 +182,7 @@ function maximize(depth, board, player) {
 			// 	}
 			// }
 		}
-	}	
+	}
 	// once you've tried all the moves, return the best move you've got along with its score
 	return [score, bestMove];
 }

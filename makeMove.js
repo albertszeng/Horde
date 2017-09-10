@@ -50,12 +50,12 @@ function makeMove(e) {
 			saveState();
 			
 			if (turn == 0) {
-				console.log("score after black plays");	
-				console.log(maximize(0, pieces, "white")[0]);
+				//console.log("score after black plays");	
+				//console.log(maximize(0, pieces, "white")[0]);
 			}
 			else {
-				console.log("score after white plays");
-				console.log(maximize(0, pieces, "white")[0]);
+				//console.log("score after white plays");
+				//console.log(maximize(0, pieces, "white")[0]);
 			}
 			
 		}
