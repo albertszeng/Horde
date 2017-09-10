@@ -94,7 +94,7 @@ var white_wins = false;
 var MAXDEPTH = 4;
 
 // 0 if AI is off, 1 if AI is white, 2 if AI is black
-var AIstatus = 2;
+var AIstatus = 0;
 
 // how many milliseconds the AI should wait before moving
 var AIWAITTIME = 50;
