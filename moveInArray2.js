@@ -198,7 +198,7 @@ function queening(selection) {
 	}
 	// if AI is on, the AI should now make a move
 	else if (AIstatus > 0) {
-		setTimeout(function () {AIMove();}, AIWAITTIME);
+		setTimeout(function () {AIMove();}, 2*AIWAITTIME);
 	}
 }
 
